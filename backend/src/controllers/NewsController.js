@@ -4,7 +4,6 @@ class NewsController{
 
     async index(req, res){
         try{
-            // const news = await News.find({}).populate("category_id");
             let newsData = await News.aggregate([
                 {
                     $lookup:{
@@ -36,7 +35,13 @@ class NewsController{
 
     async show(req, res){
         try{
-            const news = await News.findById(req.params.id);
+            const news = await News.findById(req.params.id).populate("category_id");
+            if(news.image){
+                news.image = process.env.BASE_URL + "/uploads/news" + news.image;              
+            }else{
+                news.image = process.env.BASE_URL + "/uploads/icons/hope-hostal-about.jpg";             
+               
+            }
             res.status(200).json(news);
         }catch(err){
             res.send(err);
@@ -53,7 +58,7 @@ class NewsController{
             const news  = new News({...req.body,image:imageName});
             await news.save();
             const sendData={
-                "message":"News Created Successfully",
+                "message":"News Created Successfully", 
                 "success":true,
             }
             return res.status(200).json(sendData);

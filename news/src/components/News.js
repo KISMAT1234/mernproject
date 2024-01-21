@@ -5,10 +5,11 @@ import Menu from "./Menu";
 import Footer from "./Footer";
 function News(){
     const [news, setNews] = useState([]);
-    const [loading, setLoading] = useEffect(true);
+    const [loading, setLoading] = useState(true);
 
     const getNews= () => {
        apiUrl.get("/news").then((response)=>{
+        console.log(response.data)
             setNews(response.data);
             setLoading(false);
        }).catch((err)=>{
@@ -31,23 +32,23 @@ function News(){
             </div>
 
             <div className="row">
-                {loading ? <div className="col-md-12">LOading...</div>:news && news.map((item, index)=>{
+                {loading ? <div className="col-md-12">Loading...</div>:news && news.map((item, index)=>{
                  return (
                     <div key={index} className="col-md-3">
                         <div className="card">
-                            <img src="item.image" className="card-img-top" alt="..." />
+                            <img src="{item.image}" className="card-img-top" alt="..." />
                             <div className="card-body">
                                 <h5 className="card-title">{item.title}</h5>
                                 <p className="card-text">{item.description}</p>
-                                <Link to={"/news-details/"+ item._id} className="btn btn-primary">Read More</Link>
+                                <Link to={"/news-details/"+item._id} className="btn btn-primary">Read More</Link>
                             </div>
                         </div>
     
                     </div>
                 )
-           })}
-                
+            })}
             </div> 
+                
             <Footer/>           
         </div>
     
