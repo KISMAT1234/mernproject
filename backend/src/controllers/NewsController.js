@@ -5,8 +5,30 @@ class NewsController{
     async index(req, res){
         try{
             // const news = await News.find({}).populate("category_id");
-            const news = await News.find({});
-            res.status(200).json(news);
+            let newsData = await News.aggregate([
+                {
+                    $lookup:{
+                        from:"categories",
+                        localField:"categories_id",
+                        foreignField: "_id",
+                        as :"categories"
+                    }
+                },
+                {
+                    $unwind:"$category"
+                }
+            ]);
+
+            newsData= newsData.map((news) => {
+              if(news.image){
+                news.image = process.env.BASE_URL + "/uploads/news" + news.image;              
+            }else{
+                news.image = process.env.BASE_URL + "/uploads/icons/hope-hostal-about.jpg";             
+               
+            }
+            return news;
+        })
+            res.status(200).json(newsData);
         }catch(err){
             res.send(err);
         }

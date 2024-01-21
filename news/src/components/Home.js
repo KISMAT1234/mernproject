@@ -9,6 +9,7 @@ function Home(){
         <div className="container">
           <Menu/>
           <h1>Home Component</h1>
+          <h1 className="bg-green-400 text-red-400">Tailwind</h1>
         <Footer/>
         </div>
       );
