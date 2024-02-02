@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import React,{useState,useEffect} from "react";
 import apiUrl from "../../config/apiUrl";
+
+
 function AdminHeader(){
   let token=localStorage.getItem("token") ?? "";
   const [user,setUser]=useState({});
@@ -10,12 +12,11 @@ function AdminHeader(){
         headers:{
             Authorization: `Bearer ${token}`
         }
-    }).then((response)=>{
+      }).then((response)=>{
         setUser(response.data);
-    }).catch((err)=>{
+         }).catch((err)=>{
         console.log(err);
-    
-    })
+        })
     }
 
     getUser();

@@ -32,6 +32,7 @@ class UserController{
         
     }
 
+    // showing user from user/show
     async loginuser(req, res){
         let token = req.headers.authorization;
         token = token.split(' ')[1];
@@ -53,6 +54,8 @@ class UserController{
 
     }
 
+
+    // showing image at header for user profile
     async store(req, res){
         try{
             let imageName="";

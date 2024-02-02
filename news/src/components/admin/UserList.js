@@ -4,9 +4,12 @@ import AdminHeader from "./AdminHeader";
 import apiUrl from "../../config/apiUrl";
 import { Link } from "react-router-dom";
 
+
+
 function UserList(){
-    const [loading, setLoading] = useState(true);
+  
     let token=localStorage.getItem("token") ?? "";
+    const [loading, setLoading] = useState(true);
     const [users,setUsers]=useState({});
     useEffect(()=>{
       const getUser=async ()=>{

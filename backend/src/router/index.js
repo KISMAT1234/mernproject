@@ -10,7 +10,7 @@ webRouter.get("/", (req, res) => {
     res.send("Hello World");
 });
 webRouter.use("/login", loginRouter);
-webRouter.use("/user", userRouter);
+webRouter.use("/user", userRouter); 
 webRouter.use("/category", categoryRouter);
 webRouter.use("/news", newsRouter);
 export default webRouter;
