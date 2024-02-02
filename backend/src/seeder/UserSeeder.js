@@ -1,5 +1,7 @@
 import User from '../models/User.js';
 
+
+// creating default user in database
 export default class UserSeeder {
     static async run() {
         const users = 
@@ -18,3 +20,4 @@ export default class UserSeeder {
         }
     }
 }
+

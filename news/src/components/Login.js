@@ -24,12 +24,10 @@ function Login(){
     }
 
     const insertData = (data)=>{
+        
         apiUrl.post("/login", data).then((response)=>{
            if(response.data.notfound){
-            setError("email", {
-                type: "manual",
-                message: response.data.notfound
-            });
+            setError("email", {type: "manual", message: response.data.notfound});
            }else if(response.data.incorrect){
             setError("password", {
                 type: "manual",
@@ -39,7 +37,6 @@ function Login(){
             localStorage.setItem("token", response.data.token);
               reset();
               window.location.href="/admin";
-
            }
          
         }).catch((err)=>{

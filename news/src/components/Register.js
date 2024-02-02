@@ -33,6 +33,8 @@ function Register(){
         sendData.append("password", data.password);
         sendData.append("gender", data.gender);
         sendData.append("image", data.image);
+
+        
         apiUrl.post("/user", sendData).then((response)=>{
            if(response.data.success){
             Swal.fire({

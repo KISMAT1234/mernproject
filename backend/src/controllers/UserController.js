@@ -3,6 +3,8 @@ import TokenVerify from "../middleware/TokenVerify.js";
 
 class UserController{
 
+
+    // 
     async index(req, res){
         let token = req.headers.authorization;
         token = token.split(' ')[1];

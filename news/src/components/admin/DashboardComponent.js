@@ -1,11 +1,25 @@
 import AdminAside from "./AdminAside";
 import AdminHeader from "./AdminHeader";
+import Rightbar from "./Rightbar";
+import Centercontent from "./Centercontent";
 
 function DashboardComponent(){
     return(
         <>
             <AdminHeader/>
-            <AdminAside/>       
+    {/* <div className="grid  md:grid-cols-3 sm:grid-cols-2 gap-4"> */}
+        <div className=" ">
+        <AdminAside/>
+        </div>
+        {/* <div className="">
+        <Centercontent/>
+        </div> */}
+        {/* <div className="">
+        <Rightbar/>
+        </div> */}
+    {/* </div> */}
+            {/* <AdminHeader/> */}
+            {/* <AdminAside/>       
        
         <main id="main" className="main">
             <section className="section dashboard">
@@ -20,7 +34,7 @@ function DashboardComponent(){
               
               </div>
             </section>
-          </main>
+          </main> */}
         </>
     )
 }

@@ -74,6 +74,7 @@ userSchema.methods.toJSON = function () {
 }
 
 
+
 userSchema.methods.generateToken = function(){
     let obj = {
         id: this._id,

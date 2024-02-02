@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 function AdminAside(){
     return(
         <> 
-         <aside id="sidebar" className="sidebar">
+         {/* <aside id="sidebar" className="sidebar">
           <ul className="sidebar-nav" id="sidebar-nav">
             <li className="nav-item">
               <Link className="nav-link " to="/admin">
@@ -49,7 +49,39 @@ function AdminAside(){
             </li>
         
           </ul>
-        </aside>
+        </aside> */}
+
+
+     <div className=" rounded-2xl sm:absolute md:w-[15%] border-2 mt-[20px]  border-red-500 h-[8vh] md:h-[80vh] justify-between flex md:block">
+        <div className="sm:mx-[5%] my-3 sm:text-4xl sm:mt-5px font-bold text-xl hover:text-blue-900">
+           <button>
+              <Link to ="/admin">Content</Link>
+           </button>
+        </div>
+            <div className="sm:mx-[5%] my-3 sm:text-4xl sm:mt-5px font-bold text-xl hover:text-blue-900">
+             <button>
+               <Link to ="/">Items</Link>
+            </button>
+        </div>
+
+        <div className="sm:mx-[5%] text-green-500 my-3 sm:text-4xl sm:mt-5px font-bold text-xl">
+           <button>
+             <Link to ="/admin/upload-content" clasnmae="">Upload</Link>
+           </button>
+        </div>
+
+        <div className="sm:mx-[5%] my-3 sm:text-4xl sm:mt-5px font-bold text-xl hover:text-blue-900">
+            <button>
+               <Link to ="/admin/members-list">Member</Link>
+            </button>
+        </div>
+        <div className="sm:mx-[5%] md:hidden my-3 sm:text-4xl sm:mt-5px font-bold text-xl hover:text-blue-900">
+            <button>
+               <Link to ="/">Rightbar</Link>
+            </button>
+        </div>
+         
+      </div>
 
         </>
         

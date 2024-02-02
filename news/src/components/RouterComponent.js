@@ -9,7 +9,8 @@ import DashboardComponent from "./admin/DashboardComponent";
 import RouteMiddleware from "../middleware/RouteMiddleware";
 import Register from "./Register";
 import Login from "./Login";
-import UserList from "./admin/UserList";
+import Memberlist from "./admin/Memberlist";
+import Uploadcontent from "./admin/Upload";
 import PasswordReset from "./PasswordReset";
 import ResetConfirm from "./ResetConfirm";
 import CategoryComponent from "./admin/CategoryComponent";
@@ -29,11 +30,10 @@ function RouterComponent() {
 
         <Route path="admin" element={<RouteMiddleware/>}>
             <Route path="/admin" element={<DashboardComponent/>} />
-            <Route path="users" element={<UserList/>} />
+            <Route path="members-list" element={<Memberlist/>} />
+            <Route path="upload-content" element={<Uploadcontent/>} />
             <Route path="manage-category" element={<CategoryComponent/>} />
             <Route path="add-news" element={<AddNewsComponent/>} />
-
-
         </Route>
         
 
